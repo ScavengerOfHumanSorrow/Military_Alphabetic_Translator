@@ -74,5 +74,4 @@ while True:
         output = gTTS(text=str(ttsout), lang=language, slow=False)
         output.save("output.mp3")
         os.system("start output.mp3")
-        print(*ttsout)
         ttsout = []
