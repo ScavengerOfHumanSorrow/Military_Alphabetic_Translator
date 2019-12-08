@@ -57,8 +57,7 @@ military_alphabet = {
 ttsout = []
 while True:
     text = input("\nEnter your text here or type qqq to quit program: ").upper().strip().split()
-    # print(text)
-    if text == 'QQQ':
+    if text == ["QQQ"]:
         print("Bye!")
         time.sleep(2)
         break
@@ -75,5 +74,4 @@ while True:
         output = gTTS(text=str(ttsout), lang=language, slow=False)
         output.save("output.mp3")
         os.system("start output.mp3")
-        # print(*ttsout)
         ttsout = []
