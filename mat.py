@@ -43,6 +43,12 @@ military_alphabet = {
     "8": "Eight",
     "9": "Nine",
     "0": "Ten",
+    "/": "Slash",
+    "\\": "Backslash",
+    ".": "Period",
+    ",": "Comma",
+    ";": "Semicolon",
+    ":": "Colon",
 }
 text = ''
 while True:
