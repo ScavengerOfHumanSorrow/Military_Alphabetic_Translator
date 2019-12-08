@@ -1,4 +1,4 @@
-from gtts import gTTS
+from gtts import gTTS   # Google Text To Speech module
 import os
 import time
 language = "en"
@@ -6,7 +6,7 @@ print("""
 ##############################################
 #       Military Alphabetic Translator       #
 #     Written by: ScavengerOfHumanSorrow     #
-#             Date: 22.11.2019               #
+#            Date: 22.11.2019 -              #
 ##############################################
 """)
 military_alphabet = {
@@ -52,17 +52,18 @@ military_alphabet = {
     ",": "Comma",
     ";": "Semicolon",
     ":": "Colon",
+    "-": "Dash"
 }
 ttsout = []
 while True:
-    text = input("\nEnter your text here or type qqq to quit program: ").upper()
-    splitted_text = text.split(" ")
+    text = input("\nEnter your text here or type qqq to quit program: ").upper().strip().split()
+    # print(text)
     if text == 'QQQ':
         print("Bye!")
         time.sleep(2)
         break
     else:
-        for word in splitted_text:
+        for word in text:
             output_text = ""
             temp_text = word
             print(f'\n{temp_text}: ')
@@ -74,4 +75,5 @@ while True:
         output = gTTS(text=str(ttsout), lang=language, slow=False)
         output.save("output.mp3")
         os.system("start output.mp3")
+        # print(*ttsout)
         ttsout = []
