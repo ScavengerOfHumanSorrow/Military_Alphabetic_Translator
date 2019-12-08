@@ -1,4 +1,7 @@
+from gtts import gTTS
+import os
 import time
+language = "en"
 print("""
 ##############################################
 #       Military Alphabetic Translator       #
@@ -50,7 +53,7 @@ military_alphabet = {
     ";": "Semicolon",
     ":": "Colon",
 }
-text = ''
+ttsout = []
 while True:
     text = input("\nEnter your text here or type qqq to quit program: ").upper()
     splitted_text = text.split(" ")
@@ -63,6 +66,13 @@ while True:
             output_text = ""
             temp_text = word
             print(f'\n{temp_text}: ')
+            ttsout.append(f"{temp_text} is ")
             for letter in temp_text:
                 output_text += military_alphabet.get(letter, "n/a") + " "
+            ttsout.append(output_text)
             print(f'{output_text}')
+        output = gTTS(text=str(ttsout), lang=language, slow=False)
+        output.save("output.mp3")
+        os.system("start output.mp3")
+        print(*ttsout)
+        ttsout = []
